@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+ text-align:center;
+        margin-top:150px;
+        }
+        </style>
+</head>
+<body>
+
+{% load simple_tag inclusion_tag %}
+{% greet_user message username %}
+
+<br>
+<span class="message" >You have read the following books till date</span>
+{% book_list books %}
+
+</body>
+</html>

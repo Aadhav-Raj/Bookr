@@ -25,14 +25,19 @@ SECRET_KEY = 'django-insecure-zai+(qqefl%0_uq!4^_h=9_7x3tmwh2(=#s3#1i%qa21((xvd5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+   #'bbbookr_admin.apps.BookrAdminConfig',
     'django.contrib.admin',
     'django.contrib.auth',
+    'filter_demo',
+    "book_management",
+    "rest_framework",
+    "rest_framework.authtoken",
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -59,6 +64,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                #'django.template.context_processors.media',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -123,6 +129,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+MEDIA_URL="/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

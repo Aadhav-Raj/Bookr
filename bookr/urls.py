@@ -16,14 +16,29 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
+from django.conf import settings
+from django.conf.urls.static import static
+from  . import views
 import reviews.views
 
+#from bbbookr_admin.admin import admin_site
+from django.contrib import admin
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',reviews.views.index),
-    path('key/',reviews.views.search),
-    #path('books/',reviews.views.bookList,name="book_list")
-    path("",include("reviews.urls"))
+    #path("admin/",admin.site.urls),
+    path("admin/",admin.site.urls),
+    path('accounts/', include(('django.contrib.auth.urls', 'auth'),
+                              namespace='accounts')),
+    path('accounts/profile/',views.profile,name='profile'),
 
+    path('',reviews.views.index),
+    #path('key/',reviews.views.search),
+    #path('books/',reviews.views.bookList,name="book_list")
+    path("",include("reviews.urls")),
+
+    path("filter_demo/",include("filter_demo.urls")),
+    path('book_management/',include('book_management.urls')),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -21,6 +21,8 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(help_text='The title of the book.', max_length=70)),
                 ('publication_date', models.DateField(verbose_name='Date the book was published.')),
                 ('isbn', models.CharField(max_length=20, verbose_name='ISBN number of the book.')),
+                #('cover',models.ImageField(null=True,blank=True,upload_to="book_cover/")),
+                #("sample",models.FileField(null=True,blank=True,upload_to="book_sample/"))
             ],
         ),
         migrations.CreateModel(

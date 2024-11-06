@@ -1,4 +1,4 @@
-{% extends 'reviews/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
       <br>
@@ -36,9 +36,6 @@
             {% endfor %}
             </ul>
       {% endif %}
-      <!--<a class="btn btn-primary" href="{% url 'review_create' book.pk %}">Add Review</a>-->
-
-      <a class="btn btn-primary" href="{% url 'review_create' pk=book.pk %}">Add Review</a>
-
+ <a class="btn btn-primary" href="{% url 'review_create' book.pk %}">Add Review</a>
 
 {% endblock %}
